@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinNest - Smart Financial Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="imgs/logo-side-by-side.png" alt="FinNest Logo" class="nav-logo">
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="scrollToWaitlist()">Join Waitlist</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Master Your Money with 
+                        <span class="gradient-text">AI-Powered</span> 
+                        Financial Management
+                    </h1>
+                    <p class="hero-subtitle">
+                        Track expenses, set goals, and get personalized financial advice from your AI companion. Take control of your financial future today.
+                    </p>
+                    <div class="hero-actions">
+                        <div class="waitlist-form">
+                            <input type="email" id="emailInput" placeholder="Enter your email address" class="email-input" required>
+                            <button type="button" class="btn btn-primary btn-large" onclick="joinWaitlist(event)">Join Waitlist</button>
+                        </div>
+                        <p class="waitlist-note">Be the first to know when FinNest launches!</p>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="phone-mockup">
+                        <img src="imgs/App Screenshots/1.PNG" alt="FinNest Goals Screen" class="app-screenshot">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="app-showcase">
+            <div class="container">
+                <h2 class="section-title">See FinNest in Action</h2>
+                <div class="showcase-grid">
+                    <div class="showcase-item">
+                        <div class="showcase-image">
+                            <img src="imgs/App Screenshots/1.PNG" alt="Goals tracking">
+                        </div>
+                        <div class="showcase-content">
+                            <h3>Track Your Goals</h3>
+                            <p>Visualize progress towards your financial dreams with clear timelines and milestones.</p>
+                        </div>
+                    </div>
+                    <div class="showcase-item">
+                        <div class="showcase-image">
+                            <img src="imgs/App Screenshots/2.PNG" alt="Account management">
+                        </div>
+                        <div class="showcase-content">
+                            <h3>Manage All Accounts</h3>
+                            <p>Connect checking, savings, credit cards, and investments in one unified view.</p>
+                        </div>
+                    </div>
+                    <div class="showcase-item">
+                        <div class="showcase-image">
+                            <img src="imgs/App Screenshots/3.PNG" alt="Balance trends">
+                        </div>
+                        <div class="showcase-content">
+                            <h3>Monitor Balance Trends</h3>
+                            <p>Track your financial growth with beautiful charts and real-time analytics.</p>
+                        </div>
+                    </div>
+                    <div class="showcase-item">
+                        <div class="showcase-image">
+                            <img src="imgs/App Screenshots/4.PNG" alt="Key metrics">
+                        </div>
+                        <div class="showcase-content">
+                            <h3>Key Financial Metrics</h3>
+                            <p>Stay on top of your spending with daily spend tracking and burn rate analysis.</p>
+                        </div>
+                    </div>
+                    <div class="showcase-item">
+                        <div class="showcase-image">
+                            <img src="imgs/App Screenshots/5.PNG" alt="AI assistant">
+                        </div>
+                        <div class="showcase-content">
+                            <h3>AI-Powered Guidance</h3>
+                            <p>Get real-time advice and spending alerts from your personal financial AI.</p>
+                        </div>
+                    </div>
+                    <div class="showcase-item">
+                        <div class="showcase-image">
+                            <img src="imgs/App Screenshots/6.PNG" alt="Monthly overview">
+                        </div>
+                        <div class="showcase-content">
+                            <h3>Monthly Overview</h3>
+                            <p>Comprehensive view of income, expenses, and savings with goals timeline.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="waitlist-section" class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Transform Your Financial Life?</h2>
+                    <p class="cta-subtitle">Join thousands of users already achieving their financial goals with FinNest.</p>
+                    <div class="cta-actions">
+                        <div class="waitlist-form">
+                            <input type="email" id="emailInputCta" placeholder="Enter your email address" class="email-input" required>
+                            <button id="waitlist-main-btn" type="button" class="btn btn-primary btn-large" onclick="joinWaitlistCta()"><span class="btn-text-gradient">Join Waitlist</span></button>
+                        </div>
+                        <p class="cta-note">Coming soon to iOS and Android</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Alert Container -->
+    <div id="alertContainer" class="alert-container"></div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="imgs/logo-footer.png" alt="FinNest Logo" class="footer-logo">
+                </div>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy</a>
+                    <a href="#terms">Terms</a>
+                    <a href="#support">Support</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FinNest. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Replace with your Google Apps Script Web App URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxcy4C2YoPA_yrFRMIBrG3nwUon0VSULet9o7J7ssu3PYEcnjZsyC8n7f5uEMC4jpsb/exec';
+        
+        function joinWaitlist(event) {
+            const email = document.getElementById('emailInput').value;
+            const button = event.target;
+            
+            if (email && isValidEmail(email)) {
+                submitToGoogleSheets(email, button, 'emailInput');
+            } else {
+                showErrorMessage('Please enter a valid email address.');
+            }
+        }
+
+        function joinWaitlistCta() {
+            const email = document.getElementById('emailInputCta').value;
+            const button = document.getElementById('waitlist-main-btn');
+            
+            if (email && isValidEmail(email)) {
+                submitToGoogleSheets(email, button, 'emailInputCta');
+            } else {
+                showErrorMessage('Please enter a valid email address.');
+            }
+        }
+
+        async function submitToGoogleSheets(email, button, inputId) {
+            // Show loading state
+            const originalText = button.innerHTML;
+            button.disabled = true;
+            button.innerHTML = '<span class="btn-loading">Submitting...</span>';
+            
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Required for Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        timestamp: new Date().toISOString(),
+                        source: 'FinNest Waitlist'
+                    })
+                });
+                
+                // With no-cors, we can't read the response, so we assume success
+                document.getElementById(inputId).value = '';
+                showSuccessMessage('Thank you! You\'ve been added to the waitlist.');
+                
+            } catch (error) {
+                showErrorMessage('Network error. Please try again.');
+            } finally {
+                // Restore button state
+                button.disabled = false;
+                button.innerHTML = originalText;
+            }
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function showSuccessMessage(message) {
+            showAlert(message, 'success');
+        }
+
+        function showErrorMessage(message) {
+            showAlert(message, 'error');
+        }
+
+        function showAlert(message, type) {
+            const alertContainer = document.getElementById('alertContainer');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            
+            const icon = type === 'success' ? '✓' : '⚠';
+            alert.innerHTML = `
+                <div class="alert-icon">${icon}</div>
+                <div class="alert-message">${message}</div>
+                <button class="alert-close" onclick="this.parentElement.remove()">×</button>
+            `;
+            
+            alertContainer.appendChild(alert);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                alert.classList.add('alert-fade-out');
+                setTimeout(() => alert.remove(), 300);
+            }, 5000);
+        }
+
+        function scrollToWaitlist() {
+            const target = document.querySelector('#waitlist-section');
+            const targetPosition = target.offsetTop - 80; // Account for fixed header
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 1000; // 1 second duration
+            let start = null;
+
+            function animation(currentTime) {
+                if (start === null) start = currentTime;
+                const timeElapsed = currentTime - start;
+                const run = ease(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            function ease(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        // Allow Enter key to submit form
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('emailInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    joinWaitlist();
+                }
+            });
+            
+            document.getElementById('emailInputCta').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    joinWaitlistCta();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
